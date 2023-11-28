@@ -1,0 +1,75 @@
+:root {
+  /* base */
+  --ll-color-black: #000;
+  --ll-color-white: #fff;
+
+  /* amber */
+  --ll-amber-50: hsl(48, 100%, 96%);
+  --ll-amber-100: hsl(48, 96%, 89%);
+  --ll-amber-200: hsl(48, 97%, 77%);
+  --ll-amber-300: hsl(46, 97%, 65%);
+
+  --ll-amber-400: hsl(43, 96%, 56%);
+
+  --ll-amber-500: hsl(38, 92%, 50%);
+  --ll-amber-600: hsl(32, 95%, 44%);
+  --ll-amber-700: hsl(26, 90%, 37%);
+  --ll-amber-800: hsl(23, 83%, 31%);
+  --ll-amber-900: hsl(22, 78%, 26%);
+
+  /* blue */
+  --ll-blue-50: hsl(195, 86%, 97%);
+  --ll-blue-100: hsl(200, 92%, 95%);
+  --ll-blue-200: hsl(198, 91%, 87%);
+  --ll-blue-300: hsl(199, 92%, 79%);
+
+  --ll-blue-400: hsl(199, 91%, 64%);
+
+  --ll-blue-500: hsl(199, 98%, 48%);
+  --ll-blue-600: hsl(199, 97%, 44%);
+  --ll-blue-700: hsl(199, 98%, 36%);
+  --ll-blue-800: hsl(199, 97%, 29%);
+  --ll-blue-900: hsl(199, 98%, 24%);
+
+  /* emerald */
+  --ll-emerald-50: hsl(152, 81%, 96%);
+  --ll-emerald-100: hsl(149, 80%, 90%);
+  --ll-emerald-200: hsl(152, 76%, 80%);
+  --ll-emerald-300: hsl(156, 72%, 67%);
+
+  --ll-emerald-400: hsl(158, 64%, 52%);
+
+  --ll-emerald-500: hsl(160, 84%, 39%);
+  --ll-emerald-600: hsl(161, 94%, 30%);
+  --ll-emerald-700: hsl(163, 94%, 24%);
+  --ll-emerald-800: hsl(163, 88%, 20%);
+  --ll-emerald-900: hsl(164, 86%, 16%);
+
+  /* slate */
+  --ll-slate-50: hsl(210, 40%, 98%);
+  --ll-slate-100: hsl(210, 40%, 96%);
+  --ll-slate-200: hsl(214, 32%, 91%);
+  --ll-slate-300: hsl(213, 27%, 84%);
+
+  --ll-slate-400: hsl(215, 20%, 65%);
+
+  --ll-slate-500: hsl(215, 16%, 47%);
+  --ll-slate-600: hsl(215, 19%, 35%);
+  --ll-slate-700: hsl(215, 25%, 27%);
+  --ll-slate-800: hsl(217, 33%, 17%);
+  --ll-slate-900: hsl(222, 47%, 11%);
+
+  /* red */
+  --ll-red-50: hsl(0, 86%, 97%);
+  --ll-red-100: hsl(0, 93%, 94%);
+  --ll-red-200: hsl(0, 96%, 89%);
+  --ll-red-300: hsl(0, 94%, 82%);
+
+  --ll-red-400: hsl(0, 91%, 71%);
+
+  --ll-red-500: hsl(0, 84%, 60%);
+  --ll-red-600: hsl(0, 72%, 51%);
+  --ll-red-700: hsl(0, 74%, 42%);
+  --ll-red-800: hsl(0, 70%, 35%);
+  --ll-red-900: hsl(0, 63%, 31%);
+}

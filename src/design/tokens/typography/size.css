@@ -1,0 +1,16 @@
+:root {
+  --text-xs: 0.6rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.563rem;
+
+  --text-content-line-height: 1.4;
+  --text-heading-line-height: 1.6;
+
+  --text-light: 300;
+  --text-default: 400;
+  --text-semibold: 500;
+  --text-bold: 600;
+  --text-bolder: 700;
+}
