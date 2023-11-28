@@ -1,15 +1,13 @@
 import React from "react";
 import styles from "./App.module.css";
-import { Flex } from "./ui/layout/flex";
-import { Grid, GridItem } from "./ui/layout/grid";
-import { IconClose } from "./ui/icons";
+import { Flex } from "./ui/icon/layout/flex";
+import { Grid, GridItem } from "./ui/icon/layout/grid";
 
 function App() {
   return (
     <>
       <Flex container justifyContent="space-between">
         <div className={styles.test}>Hello World</div>
-        <IconClose color="#fff" />
       </Flex>
 
       <Grid cols={12}>
