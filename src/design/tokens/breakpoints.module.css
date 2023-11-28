@@ -1,0 +1,5 @@
+:root {
+  --breakpoint-ultra-large-screen: 1920px;
+  --breakpoint-laptop-screen: 1440px;
+  --breakpoint-tablet-screen: 768px;
+}

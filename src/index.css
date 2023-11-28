@@ -1,1 +1,5 @@
 @import "design/tokens/lowleveltokens.module.css";
+
+* {
+  box-sizing: border-box;
+}
