@@ -15,7 +15,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <div className="pageWrapper">
+        <RouterProvider router={router} />
+      </div>
     </ThemeProvider>
   </React.StrictMode>
 );
