@@ -72,4 +72,18 @@
   --ll-red-700: hsl(0, 74%, 42%);
   --ll-red-800: hsl(0, 70%, 35%);
   --ll-red-900: hsl(0, 63%, 31%);
+
+  /* black */
+  --ll-black-50: hsl(0, 0%, 98%);
+  --ll-black-100: hsl(0, 0%, 96%);
+  --ll-black-200: hsl(0, 0%, 91%);
+  --ll-black-300: hsl(0, 0%, 84%);
+
+  --ll-black-400: hsl(0, 0%, 65%);
+
+  --ll-black-500: hsl(0, 0%, 47%);
+  --ll-black-600: hsl(0, 0%, 35%);
+  --ll-black-700: hsl(0, 0%, 27%);
+  --ll-black-800: hsl(0, 0%, 17%);
+  --ll-black-900: hsl(0, 0%, 11%);
 }

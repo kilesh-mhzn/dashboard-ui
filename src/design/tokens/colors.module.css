@@ -1,0 +1,19 @@
+@import "colors/base.css";
+
+:root {
+  --color-background: var(--ll-slate-100);
+  --color-text-base: var(--ll-slate-900);
+  --color-text-muted: var(--ll-slate-400);
+  --color-text-inverted: var(--ll-color-white);
+  --color-button-accent: var(--ll-blue-600);
+  --color-button-accent-hover: var(--ll-blue-700);
+}
+
+.themeDark {
+  --color-background: var(--ll-black-900);
+  --color-text-base: var(--ll-black-50);
+  --color-text-muted: var(--ll-slate-500);
+  --color-text-inverted: var(--ll-slate-900);
+  --color-button-accent: var(--ll-blue-600);
+  --color-button-accent-hover: var(--ll-blue-700);
+}
