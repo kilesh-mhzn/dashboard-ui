@@ -1,9 +1,0 @@
-:root {
-  background-color: #242424;
-}
-.test {
-  color: var(--ll-blue-900);
-  font-family: var(--ll-font-karla);
-  font-size: var(--text-lg);
-  font-weight: var(--text-bolder);
-}

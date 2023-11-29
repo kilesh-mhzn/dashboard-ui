@@ -1,11 +1,12 @@
+import { Flex } from "@ui/layout/flex";
+import { Grid, GridItem } from "@ui/layout/grid";
 import React from "react";
 import styles from "./App.module.css";
-import { Flex } from "./ui/layout/flex";
-import { Grid, GridItem } from "./ui/layout/grid";
 
 function App() {
   return (
     <>
+      <div className={styles.test}>test</div>
       <Flex container justifyContent="space-between">
         <div className={styles.test}>Hello World</div>
       </Flex>
