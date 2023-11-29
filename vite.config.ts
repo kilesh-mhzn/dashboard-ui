@@ -9,6 +9,7 @@ export default defineConfig({
       "@contexts": "/src/contexts",
       "@ui": "/src/ui",
       "@components": "/src/components",
+      "@pages": "/src/pages",
     },
   },
 });
