@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./App.module.css";
-import { Flex } from "./ui/icon/layout/flex";
-import { Grid, GridItem } from "./ui/icon/layout/grid";
+import { Flex } from "./ui/layout/flex";
+import { Grid, GridItem } from "./ui/layout/grid";
 
 function App() {
   return (
