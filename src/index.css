@@ -81,4 +81,5 @@ select {
   font-weight: var(--text-default);
   font-size: var(--text-base);
   height: 100vh;
+  transition: background 0.2s ease-in;
 }
