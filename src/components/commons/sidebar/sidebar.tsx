@@ -10,14 +10,13 @@ export const Sidebar = () => {
         <ul role="list" className={styles["sidebar-list"]}>
           {sidebarData.map((item, index) => (
             <NavLink
+              key={index}
               className={({ isActive }) =>
                 isActive ? styles["active-nav"] : ""
               }
               to={item.path}
             >
-              <li className={styles["list-item"]} key={index}>
-                {item.title}
-              </li>
+              <li className={styles["list-item"]}>{item.title}</li>
             </NavLink>
           ))}
         </ul>

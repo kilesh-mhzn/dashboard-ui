@@ -7,6 +7,9 @@
   --color-text-inverted: var(--ll-color-white);
   --color-button-accent: var(--ll-slate-200);
   --color-button-accent-hover: var(--ll-slate-100);
+
+  --color-table-head: var(--ll-slate-200);
+  --color-table-row-hover: var(--ll-slate-200);
 }
 
 .themeDark {
@@ -16,4 +19,7 @@
   --color-text-inverted: var(--ll-slate-900);
   --color-button-accent: var(--ll-black-700);
   --color-button-accent-hover: var(--ll-black-800);
+
+  --color-table-head: var(--ll-black-800);
+  --color-table-row-hover: var(--ll-black-800);
 }

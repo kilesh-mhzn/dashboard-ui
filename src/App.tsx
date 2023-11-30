@@ -11,8 +11,8 @@ function App() {
         <div>
           <Sidebar />
         </div>
-
-        <div>
+        {/* TODO:fix this */}
+        <div style={{ margin: "12px", flexGrow: "1" }}>
           <Outlet />
         </div>
       </Flex>
