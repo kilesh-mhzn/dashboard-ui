@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import React from "react";
 
-=======
->>>>>>> add icons
 interface BaseIconProps {
   size?: string;
   color?: string;
