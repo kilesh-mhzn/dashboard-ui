@@ -12,7 +12,7 @@ export type User = {
   active: string;
   address: string;
   country: string;
-  joinDate: string;
+  join_date: string;
 };
 
 interface UseUserDataProps {
