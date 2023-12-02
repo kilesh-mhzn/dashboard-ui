@@ -13,6 +13,7 @@ export type User = {
   address: string;
   country: string;
   join_date: string;
+  full_name: string;
 };
 
 interface UseUserDataProps {
@@ -30,7 +31,13 @@ export const useUserData = ({ baseUrl }: UseUserDataProps) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const userData: User[] = await apiService.fetchData("");
+        const result: User[] = await apiService.fetchData("");
+        const userData = result.map((user) => {
+          return {
+            ...user,
+            full_name: `${user.first_name} ${user.middle_name} ${user.last_name}`,
+          };
+        });
         setData(userData);
       } catch (err) {
         setError("Error fetching data");
