@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import ApiService from "@services/apiService";
-import { User } from "./customer-model";
-
+import { User } from "./customer.model";
 
 interface UseUserDataProps {
   baseUrl: string;

@@ -1,7 +1,7 @@
 import React from "react";
-// import { Icon } from "../icons/icon";
 import styles from "./table.module.css";
-import { SortDirection, useTable } from "./useTable";
+import { useTable } from "./useTable";
+import { Pagination } from "@ui/pagination/pagination";
 
 export type Column<T> = {
   id: string;
@@ -14,23 +14,31 @@ export type TableProps<T> = {
   cols: Column<T>[];
   data: T[];
   hasCheckbox?: boolean;
-  sortable?: boolean;
+  page?: number;
+  perPage?: number;
+  onPageChange: (page: number) => void;
+  onPerPageChange: (perPage: number) => void;
 };
-
 export const Table = <T extends object>({
   cols,
   data,
   hasCheckbox = false,
-}: // sortable = false,
-TableProps<T>) => {
+  page = 1,
+  perPage = 10,
+  onPageChange,
+  onPerPageChange,
+}: TableProps<T>) => {
   const {
-    // handleHeaderClick,
-    // sortConfig,
     sortedData,
     selectedRows,
     toggleRowSelection,
     toggleSelectAll,
+    handleHeaderClick,
   } = useTable(data);
+
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  const paginatedData = sortedData.slice(startIndex, endIndex);
 
   return (
     <div className={styles.tableWrapper}>
@@ -46,32 +54,11 @@ TableProps<T>) => {
                 />
               </th>
             )}
-            {cols.map((headerItem) => (
-              <th key={headerItem.title}>
+            {cols.map(({ id, title }) => (
+              <th key={id} onClick={() => handleHeaderClick(id)}>
                 <div className={styles.tableHeader}>
-                  <div
-                    className={`${styles.tableHeader} ${styles.pointer}`}
-                    // onClick={() => handleHeaderClick(headerItem.id)}
-                  >
-                    {headerItem.title}
-                    {/*{sortConfig.key === headerItem.id && (*/}
-                    {/*  <span*/}
-                    {/*    className={classNames({*/}
-                    {/*      [styles.desc]:*/}
-                    {/*        sortConfig.direction === SortDirection.DESC,*/}
-                    {/*    })}*/}
-                    {/*  >*/}
-                    {/*    {sortConfig.direction === SortDirection.ASC ? (*/}
-                    {/*      <span>*/}
-                    {/*        <Icon name={'southArrow'} />*/}
-                    {/*      </span>*/}
-                    {/*    ) : (*/}
-                    {/*      <span className={styles.desc}>*/}
-                    {/*        <Icon name={'southArrow'} />*/}
-                    {/*      </span>*/}
-                    {/*    )}*/}
-                    {/*  </span>*/}
-                    {/*)}*/}
+                  <div className={`${styles.tableHeader} ${styles.pointer}`}>
+                    {title}
                   </div>
                 </div>
               </th>
@@ -79,7 +66,7 @@ TableProps<T>) => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map((item, index) => (
+          {paginatedData.map((item, index) => (
             <tr key={index}>
               {hasCheckbox && (
                 <td>
@@ -104,7 +91,13 @@ TableProps<T>) => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        perPage={perPage}
+        page={page}
+        totalItems={sortedData.length}
+        onPageChange={onPageChange}
+        onPerPageChange={onPerPageChange}
+      />
     </div>
-    
   );
 };

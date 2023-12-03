@@ -1,4 +1,4 @@
-import { Status } from "@pages/customers/customer-model";
+import { Status } from "@pages/customers/customer.model";
 import { Badge, BadgeType } from "@ui/badge/badge";
 import React from "react";
 
