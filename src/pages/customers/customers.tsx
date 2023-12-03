@@ -7,19 +7,16 @@ import { useUserData } from "./useUserData";
 export const Customers = () => {
   const { data, loading, error } = useUserData({ baseUrl: "users.json" });
 
-  // State to manage current page and items per page
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(5);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 
-  // Handler for page change
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
   };
 
-  // Handler for items per page change
   const handlePerPageChange = (newPerPage: number) => {
     setItemsPerPage(newPerPage);
-    setCurrentPage(1); // Reset to the first page when changing items per page
+    setCurrentPage(1);
   };
 
   return useMemo(() => {
@@ -37,7 +34,6 @@ export const Customers = () => {
             onPerPageChange={handlePerPageChange}
           />
         )}
-        <div>&nbsp;</div>
       </div>
     );
   }, [data, error, loading, currentPage, itemsPerPage]);

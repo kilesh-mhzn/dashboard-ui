@@ -33,6 +33,14 @@ export const useTable = <T extends object>(
       }
     });
   };
+  const onPageChange = (newPage: number) => {
+    setPage(newPage);
+  };
+
+  const onPerPageChange = (newPerPage: number) => {
+    setPerPage(newPerPage);
+    setPage(1);
+  };
   const sortedData = useMemo(() => {
     if (!sortConfig.key) {
       return data;
@@ -85,9 +93,9 @@ export const useTable = <T extends object>(
     toggleRowSelection,
     toggleSelectAll,
     page,
-    setPage,
     perPage,
-    setPerPage,
     paginatedData,
+    onPageChange,
+    onPerPageChange,
   };
 };

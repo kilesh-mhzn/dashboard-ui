@@ -56,3 +56,9 @@
 .pointer {
   cursor: pointer;
 }
+
+.paginationWrapper {
+  width: 100%;
+  display: flex;
+  justify-items: flex-end;
+}

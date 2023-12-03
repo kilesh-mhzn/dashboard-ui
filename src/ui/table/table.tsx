@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./table.module.css";
 import { useTable } from "./useTable";
 import { Pagination } from "@ui/pagination/pagination";
+import { Flex } from "@ui/layout/flex";
 
 export type Column<T> = {
   id: string;
@@ -23,10 +24,6 @@ export const Table = <T extends object>({
   cols,
   data,
   hasCheckbox = false,
-  page = 1,
-  perPage = 10,
-  onPageChange,
-  onPerPageChange,
 }: TableProps<T>) => {
   const {
     sortedData,
@@ -34,11 +31,12 @@ export const Table = <T extends object>({
     toggleRowSelection,
     toggleSelectAll,
     handleHeaderClick,
+    paginatedData,
+    onPageChange,
+    onPerPageChange,
+    page,
+    perPage,
   } = useTable(data);
-
-  const startIndex = (page - 1) * perPage;
-  const endIndex = startIndex + perPage;
-  const paginatedData = sortedData.slice(startIndex, endIndex);
 
   return (
     <div className={styles.tableWrapper}>
@@ -91,13 +89,15 @@ export const Table = <T extends object>({
           ))}
         </tbody>
       </table>
-      <Pagination
-        perPage={perPage}
-        page={page}
-        totalItems={sortedData.length}
-        onPageChange={onPageChange}
-        onPerPageChange={onPerPageChange}
-      />
+      <Flex container padding={"0 0.625rem"} justifyContent="flex-end">
+        <Pagination
+          perPage={perPage}
+          page={page}
+          totalItems={sortedData.length}
+          onPageChange={onPageChange}
+          onPerPageChange={onPerPageChange}
+        />
+      </Flex>
     </div>
   );
 };
