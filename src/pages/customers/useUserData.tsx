@@ -1,23 +1,19 @@
 import { useState, useEffect, useMemo } from "react";
-import ApiService from "@services/apiService";
+import CustomerService from "@services/customer.service";
 import { User } from "./customer.model";
 
-interface UseUserDataProps {
-  baseUrl: string;
-}
-
-export const useUserData = ({ baseUrl }: UseUserDataProps) => {
+export const useUserData = () => {
   const [data, setData] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const apiService = useMemo(() => new ApiService({ baseUrl }), [baseUrl]);
+  const customerService = useMemo(() => new CustomerService(), []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const result: User[] = await apiService.fetchData("");
+        const result: User[] = await customerService.getCustomers();
         const userData = result.map((user) => {
           return {
             ...user,
@@ -33,7 +29,7 @@ export const useUserData = ({ baseUrl }: UseUserDataProps) => {
     };
 
     fetchData();
-  }, [apiService, baseUrl]);
+  }, [customerService]);
 
   return { data, loading, error };
 };

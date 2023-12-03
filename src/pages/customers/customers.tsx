@@ -5,7 +5,7 @@ import styles from "./customers.module.css";
 import { useUserData } from "./useUserData";
 
 export const Customers = () => {
-  const { data, loading, error } = useUserData({ baseUrl: "users.json" });
+  const { data, loading, error } = useUserData();
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
