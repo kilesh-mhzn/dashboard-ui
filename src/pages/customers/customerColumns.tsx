@@ -4,6 +4,7 @@ import { Column } from "@ui/table/table";
 import { format } from "date-fns";
 import React from "react";
 import { User } from "./customer.model";
+import { ro } from "date-fns/locale";
 
 export const customerColumns = (): Column<User>[] => {
   return [
@@ -13,6 +14,7 @@ export const customerColumns = (): Column<User>[] => {
       render: (rowData) => {
         return (
           <ProfileInfo
+            id={rowData.id}
             full_name={rowData.full_name}
             email={rowData.email}
             img={""}
