@@ -1,10 +1,9 @@
 import { ProfileInfo } from "@components/profile-info/profile-info";
+import { StatusBadge } from "@components/status-badge/status-badge";
 import { Column } from "@ui/table/table";
 import { format } from "date-fns";
 import React from "react";
-import { User } from "./useUserData";
-import { Badge } from "@ui/badge/badge";
-import { StatusBadge } from "@components/status-badge/status-badge";
+import { User } from "./customer.model";
 
 export const customerColumns = (): Column<User>[] => {
   return [
