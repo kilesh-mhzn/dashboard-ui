@@ -1,0 +1,16 @@
+.container {
+  border-radius: 4px;
+  color: var(--ll-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+
+.success {
+  background-color: var(--ll-emerald-500);
+}
+
+.danger {
+  background-color: var(--ll-red-500);
+}
