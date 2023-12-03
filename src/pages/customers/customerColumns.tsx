@@ -1,10 +1,9 @@
 import { ProfileInfo } from "@components/profile-info/profile-info";
 import { StatusBadge } from "@components/status-badge/status-badge";
 import { Column } from "@ui/table/table";
-import { format } from "date-fns";
 import React from "react";
+import { formatDate } from "utils";
 import { User } from "./customer.model";
-import { ro } from "date-fns/locale";
 
 export const customerColumns = (): Column<User>[] => {
   return [
@@ -37,9 +36,7 @@ export const customerColumns = (): Column<User>[] => {
       id: "joinData",
       title: "Join Date",
       render: (rowData) => {
-        const date = new Date(Number(rowData.join_date) * 1000);
-        const formattedDate = format(date, "yyyy/MM/dd");
-        return <span>{formattedDate}</span>;
+        return <span>{formatDate(rowData.join_date)}</span>;
       },
     },
     {

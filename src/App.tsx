@@ -21,8 +21,8 @@ function App() {
         {/* TODO: fix this */}
         <div
           style={{
-            marginLeft: "250px",
-            padding: "12px",
+            marginLeft: "200px",
+            padding: "24px",
             flexGrow: "1",
             overflowY: "auto",
           }}
