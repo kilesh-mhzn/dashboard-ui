@@ -105,5 +105,6 @@ TableProps<T>) => {
         </tbody>
       </table>
     </div>
+    
   );
 };

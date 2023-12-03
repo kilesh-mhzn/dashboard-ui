@@ -1,10 +1,6 @@
+import { Status } from "@pages/customers/customer-model";
 import { Badge, BadgeType } from "@ui/badge/badge";
 import React from "react";
-
-enum Status {
-  ACTIVE = 1,
-  INACTIVE = 0,
-}
 
 type SubscriptionStatus = "active" | "inactive";
 

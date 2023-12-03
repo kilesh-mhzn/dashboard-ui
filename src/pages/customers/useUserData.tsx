@@ -1,20 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import ApiService from "@services/apiService";
+import { User } from "./customer-model";
 
-export type User = {
-  id: number;
-  first_name: string;
-  middle_name: string;
-  last_name: string;
-  username: string;
-  email: string;
-  password: string;
-  active: string;
-  address: string;
-  country: string;
-  join_date: string;
-  full_name: string;
-};
 
 interface UseUserDataProps {
   baseUrl: string;

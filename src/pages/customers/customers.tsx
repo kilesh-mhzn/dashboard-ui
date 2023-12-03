@@ -12,9 +12,7 @@ export const Customers = () => {
       <div className={styles.container}>
         {loading && <p>Loading data...</p>}
         {error && <p>Error: {error}</p>}
-        {data.length > 0 && (
-          <Table hasCheckbox cols={customerColumns()} data={data} />
-        )}
+        {data.length > 0 && <Table cols={customerColumns()} data={data} />}
         <div>&nbsp;</div>
       </div>
     );
