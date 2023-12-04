@@ -14,12 +14,20 @@ import { Subscription } from "models/subscription.model";
 
 interface LoaderData {
   customerDetail?: User;
-  subscriptionDetail?: Subscription;
+  subscriptionDetail?: Subscription | unknown;
   error?: string;
 }
 
+interface CustomerDetailParams {
+  id: string; // Assuming your params.id is a string
+}
+
 // eslint-disable-next-line react-refresh/only-export-components
-export async function customerDetailLoader({ params }): Promise<LoaderData> {
+export async function customerDetailLoader({
+  params,
+}: {
+  params: CustomerDetailParams;
+}): Promise<LoaderData> {
   try {
     const customerId = +params.id;
 

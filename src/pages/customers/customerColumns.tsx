@@ -4,6 +4,7 @@ import { Column } from "@ui/table/table";
 import React from "react";
 import { formatDate } from "utils";
 import { User } from "../../models/customer.model";
+import { Flex } from "@ui/layout/flex";
 
 export const customerColumns = (): Column<User>[] => {
   return [
@@ -43,7 +44,11 @@ export const customerColumns = (): Column<User>[] => {
       id: "status",
       title: "Status",
       render: (rowData) => {
-        return <StatusBadge type={rowData.active} />;
+        return (
+          <Flex container>
+            <StatusBadge type={rowData.active} />
+          </Flex>
+        );
       },
     },
   ];

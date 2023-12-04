@@ -19,7 +19,7 @@ type DashboardProps = {
   getMergedData: ({
     userData,
     subscriptionData,
-  }: GetMergeDataParams) => (User & Subscription)[];
+  }: GetMergeDataParams) => Array<User & { subscriptionInfo?: Subscription }>;
 };
 
 export const Dashboard: React.FC<DashboardProps> = ({
