@@ -1,13 +1,13 @@
+import { Search } from "@components/searchInput";
+import { Flex } from "@ui/layout/flex";
 import { Table } from "@ui/table/table";
 import React, { useState } from "react";
+import { useUserData } from "../../hooks/useUserData";
 import { customerColumns } from "./customerColumns";
 import styles from "./customers.module.css";
-import { useUserData } from "../../hooks/useUserData";
-import { Input } from "@ui/input/input";
-import { Flex } from "@ui/layout/flex";
 
 export const Customers = () => {
-  const { data, loading, error, setSearchTerm, searchTerm } = useUserData();
+  const { data, loading, error, setSearchTerm } = useUserData();
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
@@ -27,13 +27,10 @@ export const Customers = () => {
       {error && <p>Error: {error}</p>}
       <Flex container justifyContent="space-between" padding={"2rem"}>
         <div className={styles.pageTitle}>Customers</div>
-        <Input
-          value={searchTerm}
-          onChange={(value) => {
-            setSearchTerm(value);
-          }}
-          placeholder="Search..."
-          debounceTime={500}
+
+        <Search
+          placeholder={"Search"}
+          onChange={(value) => setSearchTerm(value)}
         />
       </Flex>
 
