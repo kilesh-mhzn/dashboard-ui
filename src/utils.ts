@@ -22,3 +22,18 @@ export const formatDate = (
   const date = new Date(Number(timestamp) * 1000);
   return format(date, formatString);
 };
+
+export const debounce = <T extends (...args: any[]) => void>(
+  mainFunction: T,
+  delay: number
+) => {
+  let timer: ReturnType<typeof setTimeout>;
+
+  return function (...args: Parameters<T>) {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      mainFunction(...args);
+    }, delay);
+  };
+};

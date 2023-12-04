@@ -5,7 +5,7 @@ class CustomerService {
 
   constructor() {}
 
-  async getCustomers<T>(): Promise<T> {
+  async getCustomers<T>({ searchTerm = "" }): Promise<T> {
     try {
       const response = await fetch(`/${this.baseUrl}`, {
         headers: {
@@ -13,8 +13,25 @@ class CustomerService {
           Accept: "application/json",
         },
       });
+
       const data = await response.json();
-      return data;
+      const customerData = data
+        .map((customer: User) => {
+          return {
+            ...customer,
+            full_name: `${customer.first_name} ${customer.middle_name} ${customer.last_name}`,
+          };
+        })
+        .filter((fd: User) => {
+          const searchTermsArray = searchTerm.toLowerCase().split(" ");
+
+          return searchTermsArray.every((term) =>
+            Object.values(fd).some((value) =>
+              String(value).toLowerCase().includes(term)
+            )
+          );
+        });
+      return customerData;
     } catch (error) {
       throw new Error("Error fetching data");
     }

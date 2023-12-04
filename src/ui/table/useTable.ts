@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 export enum SortDirection {
   ASC = "asc",
@@ -17,6 +17,10 @@ export const useTable = <T extends object>(
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [page, setPage] = useState(initialPage);
   const [perPage, setPerPage] = useState(initialPerPage);
+
+  useEffect(() => {
+    setData(initialData);
+  }, [initialData]);
 
   const handleHeaderClick = (id: string) => {
     setSortConfig(({ key, direction }) => {

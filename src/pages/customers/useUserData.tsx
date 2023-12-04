@@ -1,35 +1,40 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import CustomerService from "@services/customer.service";
 import { User } from "./customer.model";
+import { debounce } from "utils";
 
 export const useUserData = () => {
   const [data, setData] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const customerService = useMemo(() => new CustomerService(), []);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = useCallback(
+    async (term: string) => {
       try {
         setLoading(true);
-        const result: User[] = await customerService.getCustomers();
-        const userData = result.map((user) => {
-          return {
-            ...user,
-            full_name: `${user.first_name} ${user.middle_name} ${user.last_name}`,
-          };
+        const result: User[] = await customerService.getCustomers({
+          searchTerm: term,
         });
-        setData(userData);
+        setData(result);
       } catch (err) {
         setError("Error fetching data");
       } finally {
         setLoading(false);
       }
-    };
+    },
+    [customerService]
+  );
 
-    fetchData();
-  }, [customerService]);
+  useEffect(() => {
+    fetchData(searchTerm);
+  }, [fetchData, searchTerm]);
 
-  return { data, loading, error };
+  const debouncedSearch = debounce((searchTerm: string) => {
+    setSearchTerm(searchTerm);
+  }, 500);
+
+  return { data, loading, error, setSearchTerm, debouncedSearch };
 };
