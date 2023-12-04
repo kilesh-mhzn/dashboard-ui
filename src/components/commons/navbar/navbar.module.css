@@ -2,5 +2,5 @@
   position: sticky;
   top: 0;
   background-color: var(--color-background);
-  box-shadow: (--ll-box-shadow);
+  box-shadow: var(--ll-box-shadow);
 }

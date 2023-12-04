@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useUserData } from "../../hooks/useUserData";
 import { customerColumns } from "./customerColumns";
 import styles from "./customers.module.css";
+import { EmptyState } from "@components/commons/empty-state/empty-state";
 
 export const Customers = () => {
   const { data, loading, error, setSearchTerm } = useUserData();
@@ -34,7 +35,7 @@ export const Customers = () => {
         />
       </Flex>
 
-      {data.length > 0 && (
+      {data.length > 0 ? (
         <Table
           cols={customerColumns()}
           data={data}
@@ -43,6 +44,8 @@ export const Customers = () => {
           onPageChange={handlePageChange}
           onPerPageChange={handlePerPageChange}
         />
+      ) : (
+        <EmptyState />
       )}
     </div>
   );

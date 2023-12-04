@@ -7,7 +7,7 @@ import { Grid } from "@ui/layout/grid";
 import { Flex } from "@ui/layout/flex";
 import classNames from "classnames";
 import { formatDate } from "utils";
-import { IconLeftChevron } from "@ui/icons";
+import { IconLeftChevron } from "@ui/icons/icons";
 import { StatusBadge } from "@components/status-badge/status-badge";
 import SubscriptionService from "@services/subscription.service";
 import { Subscription } from "models/subscription.model";
