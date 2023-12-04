@@ -1,22 +1,25 @@
-import React, { useState, useEffect, InputHTMLAttributes } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./input.module.css";
 import classNames from "classnames";
 
 type InputProps = {
+  name: string;
+  placeholder: string;
   value: string;
   onChange: (value: string) => void;
   label?: string;
   fullWidth?: boolean;
   debounceTime?: number;
-} & InputHTMLAttributes<HTMLInputElement>;
+};
 
 export const Input = ({
+  name,
+  placeholder,
   value,
   onChange,
   label,
   fullWidth = false,
   debounceTime = 0,
-  ...props
 }: InputProps) => {
   const [inputValue, setInputValue] = useState(value);
 
@@ -41,11 +44,12 @@ export const Input = ({
         className={classNames(styles.inputField, {
           [styles.fullWidth]: fullWidth,
         })}
+        name={name}
         type="text"
         value={inputValue}
         onChange={handleChange}
         onBlur={() => onChange(inputValue)}
-        {...props}
+        placeholder={placeholder}
       />
     </div>
   );

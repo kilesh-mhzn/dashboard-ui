@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./pagination.module.css";
 import { Flex } from "@ui/layout/flex";
-import { IconLeftChevron, IconRightChevron } from "@ui/icons";
+import { IconLeftChevron, IconRightChevron } from "@ui/icons/icons";
 
 type PaginationProps = {
   perPage: number;

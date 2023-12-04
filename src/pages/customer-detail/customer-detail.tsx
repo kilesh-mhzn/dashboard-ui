@@ -7,7 +7,7 @@ import { Grid } from "@ui/layout/grid";
 import { Flex } from "@ui/layout/flex";
 import classNames from "classnames";
 import { formatDate } from "utils";
-import { IconLeftChevron } from "@ui/icons";
+import { IconLeftChevron } from "@ui/icons/icons";
 import { StatusBadge } from "@components/status-badge/status-badge";
 import SubscriptionService from "@services/subscription.service";
 import { Subscription } from "models/subscription.model";
@@ -19,7 +19,12 @@ interface LoaderData {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function customerDetailLoader({ params }): Promise<LoaderData> {
+export async function customerDetailLoader({
+  params,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
+}): Promise<LoaderData> {
   try {
     const customerId = +params.id;
 
@@ -31,9 +36,8 @@ export async function customerDetailLoader({ params }): Promise<LoaderData> {
     const subscriptionService = new SubscriptionService();
 
     const customerDetail: User = await customerService.getCustomer(customerId);
-    const subscriptionDetail = await subscriptionService.getSubscription(
-      params.id
-    );
+    const subscriptionDetail: Subscription =
+      await subscriptionService.getSubscription(params.id);
 
     return { customerDetail, subscriptionDetail };
   } catch (error) {

@@ -7,13 +7,13 @@ import React, {
 } from "react";
 
 interface ThemeContextProps {
-  isLightMode: boolean;
-  toggleLightMode: () => void;
+  theme: string;
+  toggleTheme: () => void;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-  isLightMode: true,
-  toggleLightMode: () => {},
+  theme: "themeLight",
+  toggleTheme: () => {},
 });
 
 interface ThemeProviderProps {
@@ -22,30 +22,21 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<string>(() => {
-    return localStorage.getItem("theme") || "";
+    return localStorage.getItem("theme") || "themeLight";
   });
-
-  const [isLightMode, setisLightMode] = useState<boolean>(() => {
-    const storedValue = localStorage.getItem("isLightMode");
-    return storedValue ? JSON.parse(storedValue) : true;
-  });
-
-  const toggleLightMode = () => {
-    setisLightMode(!isLightMode);
-    toggleTheme();
-  };
 
   const toggleTheme = () => {
-    setTheme(() => (isLightMode ? "" : "themeDark"));
+    setTheme((prevTheme) =>
+      prevTheme === "themeLight" ? "themeDark" : "themeLight"
+    );
   };
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    localStorage.setItem("isLightMode", JSON.stringify(isLightMode));
-  }, [theme, isLightMode]);
+  }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ isLightMode, toggleLightMode }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={theme}>{children}</div>
     </ThemeContext.Provider>
   );

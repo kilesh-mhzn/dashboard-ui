@@ -23,17 +23,18 @@ export const formatDate = (
   return format(date, formatString);
 };
 
-export const debounce = <T extends (...args: any[]) => void>(
-  mainFunction: T,
-  delay: number
-) => {
-  let timer: ReturnType<typeof setTimeout>;
+// // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// export const debounce = <T extends (...args: any[]) => void>(
+//   mainFunction: T,
+//   delay: number
+// ) => {
+//   let timer: ReturnType<typeof setTimeout>;
 
-  return function (...args: Parameters<T>) {
-    clearTimeout(timer);
+//   return function (...args: Parameters<T>) {
+//     clearTimeout(timer);
 
-    timer = setTimeout(() => {
-      mainFunction(...args);
-    }, delay);
-  };
-};
+//     timer = setTimeout(() => {
+//       mainFunction(...args);
+//     }, delay);
+//   };
+// };

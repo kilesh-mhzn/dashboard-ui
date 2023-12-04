@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import CustomerService from "@services/customer.service";
 import { User } from "../models/customer.model";
-import { debounce } from "utils";
 
 export const useUserData = () => {
   const [data, setData] = useState<User[]>([]);
@@ -32,9 +31,5 @@ export const useUserData = () => {
     fetchData(searchTerm);
   }, [fetchData, searchTerm]);
 
-  const debouncedSearch = debounce((searchTerm: string) => {
-    setSearchTerm(searchTerm);
-  }, 500);
-
-  return { data, loading, error, searchTerm, setSearchTerm, debouncedSearch };
+  return { data, loading, error, searchTerm, setSearchTerm };
 };

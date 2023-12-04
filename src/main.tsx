@@ -5,12 +5,16 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@contexts/themeContext";
 import { Customers } from "@pages/customers/customers.tsx";
-import { Dashboard } from "@pages/dashboard/dashboard.tsx";
+// import { Dashboard } from "@pages/dashboard/dashboard.tsx";
 import ErrorPage from "@pages/error-page/error-page.tsx";
 import {
   customerDetailLoader,
   CustomerDetail,
 } from "@pages/customer-detail/customer-detail.tsx";
+import { composeDashboard } from "@pages/dashboard/compose.tsx";
+
+// eslint-disable-next-line react-refresh/only-export-components
+const Dashboard = composeDashboard();
 
 const router = createBrowserRouter([
   {
@@ -36,11 +40,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  // <React.StrictMode>
-  <ThemeProvider>
-    <div className="pageWrapper">
-      <RouterProvider router={router} />
-    </div>
-  </ThemeProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider>
+      <div className="pageWrapper">
+        <RouterProvider router={router} />
+      </div>
+    </ThemeProvider>
+  </React.StrictMode>
 );

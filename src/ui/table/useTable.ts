@@ -1,42 +1,21 @@
 import { useState, useMemo, useEffect } from "react";
 
-export enum SortDirection {
-  ASC = "asc",
-  DESC = "desc",
-}
 export const useTable = <T extends object>(
   initialData: T[] = [],
   initialPage: number = 1,
   initialPerPage: number = 10
 ) => {
   const [data, setData] = useState(initialData);
-  const [sortConfig, setSortConfig] = useState<{
-    key: string | null;
-    direction: SortDirection | null;
-  }>({ key: null, direction: null });
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [page, setPage] = useState(initialPage);
   const [perPage, setPerPage] = useState(initialPerPage);
+  const [sortColumn, setSortColumn] = useState<string>("");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
 
-  const handleHeaderClick = (id: string) => {
-    setSortConfig(({ key, direction }) => {
-      if (key === id) {
-        return {
-          key,
-          direction:
-            direction === SortDirection.ASC
-              ? SortDirection.DESC
-              : SortDirection.ASC,
-        };
-      } else {
-        return { key: id, direction: SortDirection.ASC };
-      }
-    });
-  };
   const onPageChange = (newPage: number) => {
     setPage(newPage);
   };
@@ -45,31 +24,15 @@ export const useTable = <T extends object>(
     setPerPage(newPerPage);
     setPage(1);
   };
-  const sortedData = useMemo(() => {
-    if (!sortConfig.key) {
-      return data;
-    }
 
-    return [...data].sort((a: T, b) => {
-      const valueA = sortConfig.key && (a as never)[sortConfig.key];
-      const valueB = sortConfig.key && (b as never)[sortConfig.key];
-
-      if (typeof valueA === "string" && typeof valueB === "string") {
-        return sortConfig.direction === SortDirection.ASC
-          ? valueA.localeCompare(valueB)
-          : valueB.localeCompare(valueA);
-      } else {
-        return sortConfig.direction === SortDirection.ASC
-          ? Number(valueA) - Number(valueB)
-          : Number(valueB) - Number(valueA);
-      }
-    });
-  }, [data, sortConfig]);
   const paginatedData = useMemo(() => {
+    const sortedData = sortData(data, sortColumn, sortDirection);
+
+    if (sortedData.length < perPage) return sortedData;
     const startIndex = (page - 1) * perPage;
     const endIndex = startIndex + perPage;
     return sortedData.slice(startIndex, endIndex);
-  }, [sortedData, page, perPage]);
+  }, [data, page, perPage, sortColumn, sortDirection]);
 
   const toggleRowSelection = (row: T) => {
     setSelectedRows((prevSelectedRows) => {
@@ -90,9 +53,6 @@ export const useTable = <T extends object>(
   return {
     data,
     setData,
-    sortConfig,
-    handleHeaderClick,
-    sortedData,
     selectedRows,
     toggleRowSelection,
     toggleSelectAll,
@@ -101,5 +61,31 @@ export const useTable = <T extends object>(
     paginatedData,
     onPageChange,
     onPerPageChange,
+    sortColumn,
+    sortDirection,
+    setSortColumn,
+    setSortDirection,
   };
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const sortData = <T extends Record<string, any>>(
+  data: T[],
+  sortColumn: string,
+  sortDirection: "asc" | "desc"
+) => {
+  if (sortColumn && sortDirection) {
+    const sorted = [...data].sort((a, b) => {
+      const valueA = a[sortColumn] as string;
+      const valueB = b[sortColumn] as string;
+
+      if (valueA < valueB) return sortDirection === "asc" ? -1 : 1;
+      if (valueA > valueB) return sortDirection === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    return sorted;
+  }
+
+  return data;
 };

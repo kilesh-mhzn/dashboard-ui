@@ -1,67 +1,54 @@
-import React from "react";
+// Dashboard.tsx
+import GroupedBarChart from "@components/charts/group-bar-chart";
+import PieChart from "@components/charts/pie-chart";
+import { User } from "@models/customer.model";
+import { Flex } from "@ui/layout/flex";
 import classNames from "classnames";
+import React from "react";
+import styles from "./dashboard.module.css";
 import { useUserData } from "@hooks/useUserData";
 import { useSubscriptionData } from "@hooks/useSubscriptionData";
-import styles from "./dashboard.module.css";
-import PieChart from "@components/charts/pie-chart";
-import { Flex } from "@ui/layout/flex";
-import GroupedBarChart from "@components/charts/group-bar-chart";
-import { Status, User } from "@models/customer.model";
+import { Subscription } from "@models/subscription.model";
+import { ActiveSubscriberCountParams, GetMergeDataParams } from "./compose";
 
-interface DashboardProps {}
-
-export const Dashboard: React.FC<DashboardProps> = () => {
-  const { data } = useUserData();
-  const { data: subscriptionData } = useSubscriptionData();
-
-  interface Counts {
+type DashboardProps = {
+  getActiveSubscriptionCount: ({ data }: ActiveSubscriberCountParams) => {
     active: number;
     inactive: number;
-  }
+  };
+  getMergedData: ({
+    userData,
+    subscriptionData,
+  }: GetMergeDataParams) => Array<User & { subscriptionInfo?: Subscription }>;
+};
 
-  const activeSubscriberCount = data.reduce(
-    (counts: Counts, user: User) => {
-      if (user.active === Status.ACTIVE) {
-        counts.active++;
-      } else {
-        counts.inactive++;
-      }
-      return counts;
-    },
-    { active: 0, inactive: 0 }
-  );
-
-  interface PackageCounts {
-    [packageName: string]: number;
-  }
-
-  const packageCounts = subscriptionData.reduce(
-    (counts: PackageCounts, item) => {
-      const packageName = item.package.trim();
-      counts[packageName] = (counts[packageName] || 0) + 1;
-      return counts;
-    },
-    {}
-  );
-
-  const mergedData = data.map((user) => {
-    const subscriptionInfo = subscriptionData.find(
-      (subscription) => subscription.user_id === String(user.id)
-    );
-    return { ...user, subscriptionInfo };
-  });
-
+export const Dashboard: React.FC<DashboardProps> = ({
+  getMergedData,
+  getActiveSubscriptionCount,
+}) => {
+  const { data } = useUserData();
+  const { data: subscriptionData } = useSubscriptionData();
   return (
     <>
-      <div>Welcome to Your Dashboard</div>
-      <Flex container gap={"1rem"} flexWrap="wrap">
-        <div className={classNames(styles.card, styles.barChart)}>
-          <GroupedBarChart mergedData={mergedData} />
-        </div>
-        <div className={classNames(styles.card, styles.pieChart)}>
-          <PieChart statusData={activeSubscriberCount} />
-        </div>
-      </Flex>
+      {data.length === 0 && subscriptionData.length === 0 ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <div>Welcome to Your Dashboard</div>
+          <Flex container gap={"1rem"} flexWrap="wrap">
+            <div className={classNames(styles.card, styles.barChart)}>
+              <GroupedBarChart
+                mergedData={getMergedData({ userData: data, subscriptionData })}
+              />
+            </div>
+            <div className={classNames(styles.card, styles.pieChart)}>
+              <PieChart statusData={getActiveSubscriptionCount({ data })} />
+            </div>
+          </Flex>
+        </>
+      )}
     </>
   );
 };
+
+export default Dashboard;

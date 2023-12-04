@@ -4,11 +4,12 @@ import { Column } from "@ui/table/table";
 import React from "react";
 import { formatDate } from "utils";
 import { User } from "../../models/customer.model";
+import { Flex } from "@ui/layout/flex";
 
 export const customerColumns = (): Column<User>[] => {
   return [
     {
-      id: "name",
+      id: "full_name",
       title: "name",
       render: (rowData) => {
         return (
@@ -20,6 +21,7 @@ export const customerColumns = (): Column<User>[] => {
           />
         );
       },
+      sortable: true,
     },
     {
       id: "address",
@@ -38,13 +40,19 @@ export const customerColumns = (): Column<User>[] => {
       render: (rowData) => {
         return <span>{formatDate(rowData.join_date)}</span>;
       },
+      sortable: true,
     },
     {
-      id: "status",
+      id: "active",
       title: "Status",
       render: (rowData) => {
-        return <StatusBadge type={rowData.active} />;
+        return (
+          <Flex container>
+            <StatusBadge type={rowData.active} />
+          </Flex>
+        );
       },
+      sortable: true,
     },
   ];
 };
