@@ -26,11 +26,9 @@ export const Table = <T extends object>({
   hasCheckbox = false,
 }: TableProps<T>) => {
   const {
-    sortedData,
     selectedRows,
     toggleRowSelection,
     toggleSelectAll,
-    handleHeaderClick,
     paginatedData,
     onPageChange,
     onPerPageChange,
@@ -47,17 +45,15 @@ export const Table = <T extends object>({
               <th>
                 <input
                   type="checkbox"
-                  checked={selectedRows.length === sortedData.length}
+                  checked={selectedRows.length === paginatedData.length}
                   onChange={() => toggleSelectAll()}
                 />
               </th>
             )}
             {cols.map(({ id, title }) => (
-              <th key={id} onClick={() => handleHeaderClick(id)}>
-                <div className={styles.tableHeader}>
-                  <div className={`${styles.tableHeader} ${styles.pointer}`}>
-                    {title}
-                  </div>
+              <th key={id}>
+                <div className={`${styles.tableHeader} ${styles.pointer}`}>
+                  {title}
                 </div>
               </th>
             ))}
@@ -93,7 +89,7 @@ export const Table = <T extends object>({
         <Pagination
           perPage={perPage}
           page={page}
-          totalItems={sortedData.length}
+          totalItems={data.length}
           onPageChange={onPageChange}
           onPerPageChange={onPerPageChange}
         />

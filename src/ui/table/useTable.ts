@@ -1,19 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
 
-export enum SortDirection {
-  ASC = "asc",
-  DESC = "desc",
-}
 export const useTable = <T extends object>(
   initialData: T[] = [],
   initialPage: number = 1,
   initialPerPage: number = 10
 ) => {
   const [data, setData] = useState(initialData);
-  const [sortConfig, setSortConfig] = useState<{
-    key: string | null;
-    direction: SortDirection | null;
-  }>({ key: null, direction: null });
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [page, setPage] = useState(initialPage);
   const [perPage, setPerPage] = useState(initialPerPage);
@@ -22,21 +14,6 @@ export const useTable = <T extends object>(
     setData(initialData);
   }, [initialData]);
 
-  const handleHeaderClick = (id: string) => {
-    setSortConfig(({ key, direction }) => {
-      if (key === id) {
-        return {
-          key,
-          direction:
-            direction === SortDirection.ASC
-              ? SortDirection.DESC
-              : SortDirection.ASC,
-        };
-      } else {
-        return { key: id, direction: SortDirection.ASC };
-      }
-    });
-  };
   const onPageChange = (newPage: number) => {
     setPage(newPage);
   };
@@ -45,31 +22,13 @@ export const useTable = <T extends object>(
     setPerPage(newPerPage);
     setPage(1);
   };
-  const sortedData = useMemo(() => {
-    if (!sortConfig.key) {
-      return data;
-    }
 
-    return [...data].sort((a: T, b) => {
-      const valueA = sortConfig.key && (a as never)[sortConfig.key];
-      const valueB = sortConfig.key && (b as never)[sortConfig.key];
-
-      if (typeof valueA === "string" && typeof valueB === "string") {
-        return sortConfig.direction === SortDirection.ASC
-          ? valueA.localeCompare(valueB)
-          : valueB.localeCompare(valueA);
-      } else {
-        return sortConfig.direction === SortDirection.ASC
-          ? Number(valueA) - Number(valueB)
-          : Number(valueB) - Number(valueA);
-      }
-    });
-  }, [data, sortConfig]);
   const paginatedData = useMemo(() => {
+    if (data.length < perPage) return data;
     const startIndex = (page - 1) * perPage;
     const endIndex = startIndex + perPage;
-    return sortedData.slice(startIndex, endIndex);
-  }, [sortedData, page, perPage]);
+    return data.slice(startIndex, endIndex);
+  }, [data, page, perPage]);
 
   const toggleRowSelection = (row: T) => {
     setSelectedRows((prevSelectedRows) => {
@@ -90,9 +49,6 @@ export const useTable = <T extends object>(
   return {
     data,
     setData,
-    sortConfig,
-    handleHeaderClick,
-    sortedData,
     selectedRows,
     toggleRowSelection,
     toggleSelectAll,
