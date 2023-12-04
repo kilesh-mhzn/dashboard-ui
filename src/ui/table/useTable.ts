@@ -68,7 +68,8 @@ export const useTable = <T extends object>(
   };
 };
 
-const sortData = <T extends object>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const sortData = <T extends Record<string, any>>(
   data: T[],
   sortColumn: string,
   sortDirection: "asc" | "desc"
