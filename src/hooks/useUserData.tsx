@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import CustomerService from "@services/customer.service";
-import { User } from "./customer.model";
+import { User } from "../models/customer.model";
 import { debounce } from "utils";
 
 export const useUserData = () => {

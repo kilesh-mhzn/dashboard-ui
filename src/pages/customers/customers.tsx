@@ -2,7 +2,7 @@ import { Table } from "@ui/table/table";
 import React, { useState } from "react";
 import { customerColumns } from "./customerColumns";
 import styles from "./customers.module.css";
-import { useUserData } from "./useUserData";
+import { useUserData } from "../../hooks/useUserData";
 import { Input } from "@ui/input/input";
 import { Flex } from "@ui/layout/flex";
 

@@ -9,3 +9,7 @@
   height: 250px;
   width: 250px;
 }
+
+.barChart {
+  flex-grow: 1;
+}

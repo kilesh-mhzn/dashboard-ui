@@ -1,4 +1,4 @@
-import { User } from "@pages/customers/customer.model";
+import { User } from "models/customer.model";
 
 class CustomerService {
   private baseUrl: string = "users.json";

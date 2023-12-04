@@ -3,7 +3,7 @@ import { StatusBadge } from "@components/status-badge/status-badge";
 import { Column } from "@ui/table/table";
 import React from "react";
 import { formatDate } from "utils";
-import { User } from "./customer.model";
+import { User } from "../../models/customer.model";
 
 export const customerColumns = (): Column<User>[] => {
   return [

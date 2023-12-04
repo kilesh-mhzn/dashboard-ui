@@ -1,4 +1,4 @@
-import { User } from "@pages/customers/customer.model";
+import { User } from "models/customer.model";
 import CustomerService from "@services/customer.service";
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";

@@ -13,7 +13,8 @@
       "@hooks/*": ["./hooks/*"],
       "@contexts/*": ["./contexts/*"],
       "utils": ["./utils.ts"],
-      "@services/*": ["./services/*"]
+      "@services/*": ["./services/*"],
+      "@models/*": ["./models/*"]
     },
 
     /* Bundler mode */

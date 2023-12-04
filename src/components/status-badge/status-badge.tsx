@@ -1,5 +1,5 @@
-import { Status } from "@pages/customers/customer.model";
 import { Badge, BadgeType } from "@ui/badge/badge";
+import { Status } from "@models/customer.model";
 import React from "react";
 
 type SubscriptionStatus = "active" | "inactive";
