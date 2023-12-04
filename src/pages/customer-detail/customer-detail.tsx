@@ -14,19 +14,16 @@ import { Subscription } from "models/subscription.model";
 
 interface LoaderData {
   customerDetail?: User;
-  subscriptionDetail?: Subscription | unknown;
+  subscriptionDetail?: Subscription;
   error?: string;
-}
-
-interface CustomerDetailParams {
-  id: string; // Assuming your params.id is a string
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function customerDetailLoader({
   params,
 }: {
-  params: CustomerDetailParams;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
 }): Promise<LoaderData> {
   try {
     const customerId = +params.id;
@@ -39,9 +36,8 @@ export async function customerDetailLoader({
     const subscriptionService = new SubscriptionService();
 
     const customerDetail: User = await customerService.getCustomer(customerId);
-    const subscriptionDetail = await subscriptionService.getSubscription(
-      params.id
-    );
+    const subscriptionDetail: Subscription =
+      await subscriptionService.getSubscription(params.id);
 
     return { customerDetail, subscriptionDetail };
   } catch (error) {
