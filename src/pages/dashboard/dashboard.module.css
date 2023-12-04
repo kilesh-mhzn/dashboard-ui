@@ -1,0 +1,11 @@
+.card {
+  border-radius: 10px;
+  background-color: var(--color-table-head);
+  padding: 12px;
+  box-shadow: var(--ll-box-shadow);
+}
+
+.pieChart {
+  height: 250px;
+  width: 250px;
+}

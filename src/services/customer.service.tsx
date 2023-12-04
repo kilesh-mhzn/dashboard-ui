@@ -20,6 +20,7 @@ class CustomerService {
           return {
             ...customer,
             full_name: `${customer.first_name} ${customer.middle_name} ${customer.last_name}`,
+            active: +customer.active,
           };
         })
         .filter((fd: User) => {
