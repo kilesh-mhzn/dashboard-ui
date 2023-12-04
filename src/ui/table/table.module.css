@@ -1,0 +1,64 @@
+.tableWrapper table p {
+  margin: unset;
+}
+
+.tableWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: auto;
+  font-family: Karla;
+}
+
+.tableWrapper table {
+  width: inherit;
+  border-collapse: collapse;
+}
+.tableWrapper thead {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.tableWrapper th {
+  padding: 10px;
+  background-color: var(--color-table-head);
+  text-align: start;
+  text-transform: capitalize;
+  color: var(--text-base);
+  font-weight: 700;
+  line-height: 140%;
+  white-space: nowrap;
+}
+
+.tableWrapper tr:hover {
+  background-color: var(--color-table-row-hover);
+}
+.tableWrapper td {
+  padding: 10px 10px;
+  font-weight: 500;
+}
+
+.tableWrapper tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-text-muted);
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.desc {
+  transform: rotate(180deg);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.paginationWrapper {
+  width: 100%;
+  display: flex;
+  justify-items: flex-end;
+}

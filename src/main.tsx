@@ -7,6 +7,10 @@ import { ThemeProvider } from "@contexts/themeContext";
 import { Customers } from "@pages/customers/customers.tsx";
 import { Dashboard } from "@pages/dashboard/dashboard.tsx";
 import ErrorPage from "@pages/error-page/error-page.tsx";
+import {
+  customerDetailLoader,
+  CustomerDetail,
+} from "@pages/customer-detail/customer-detail.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,16 +26,21 @@ const router = createBrowserRouter([
         path: "/customers",
         element: <Customers />,
       },
+      {
+        path: "/customers/:id",
+        element: <CustomerDetail />,
+        loader: customerDetailLoader,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <div className="pageWrapper">
-        <RouterProvider router={router} />
-      </div>
-    </ThemeProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <ThemeProvider>
+    <div className="pageWrapper">
+      <RouterProvider router={router} />
+    </div>
+  </ThemeProvider>
+  // </React.StrictMode>
 );

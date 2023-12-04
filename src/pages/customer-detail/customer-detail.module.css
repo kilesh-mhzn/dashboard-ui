@@ -1,0 +1,29 @@
+.card {
+  border-radius: 10px;
+  background-color: var(--color-table-head);
+  padding: 12px;
+  box-shadow: var(--ll-box-shadow);
+}
+
+.backBtn {
+  border-radius: 4px;
+  display: inline-flex;
+  outline: var(--ll-black-800);
+  padding: 4px 0;
+  padding-right: 8px;
+  margin-bottom: 4px;
+}
+.backBtn:hover {
+  background-color: var(--color-table-head);
+}
+
+.label {
+  font-size: var(--text-sm);
+  margin-bottom: 8px;
+}
+
+.detailField {
+  background-color: var(--color-button-accent);
+  border-radius: 5px;
+  padding: 4px 8px;
+}

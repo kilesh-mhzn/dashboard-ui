@@ -1,5 +1,6 @@
 /** Colors */
 @import "colors/base.css";
+@import "colors/shadow.css";
 
 /* Spacing Tokens */
 @import "spacings/base.css";

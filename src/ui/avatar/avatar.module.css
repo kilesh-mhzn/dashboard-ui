@@ -1,0 +1,28 @@
+.container {
+  color: var(--ll-color-white);
+}
+.container .avatar {
+  background-color: var(--ll-amber-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarSizeMd {
+  height: 32px;
+  width: 32px;
+  font-weight: var(--text-bold);
+}
+
+.avatarSizeXs {
+  height: 24px;
+  width: 24px;
+  font-size: var(--text-sm);
+}
+.avatarSizeSm {
+  height: 28px;
+  width: 28px;
+  font-size: var(--text-sm);
+  font-weight: var(--text-bold);
+}

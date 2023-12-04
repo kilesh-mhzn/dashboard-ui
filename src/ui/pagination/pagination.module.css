@@ -1,0 +1,7 @@
+.container {
+  font-weight: var(--text-bold);
+}
+.paginationBtn {
+  display: flex;
+  align-items: center;
+}

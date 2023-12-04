@@ -86,4 +86,5 @@ select {
   font-size: var(--text-base);
   height: 100vh;
   transition: background 0.2s ease-in;
+  overflow: auto;
 }

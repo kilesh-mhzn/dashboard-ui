@@ -1,0 +1,18 @@
+.container {
+  border-radius: 4px;
+  color: var(--ll-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  font-size: var(--ll-text-sm);
+  font-weight: var(--ll-text-semibold);
+}
+
+.success {
+  background-color: var(--ll-emerald-500);
+}
+
+.danger {
+  background-color: var(--ll-red-500);
+}

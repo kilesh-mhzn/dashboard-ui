@@ -7,13 +7,8 @@ import styles from "./navbar.module.css";
 export const Navbar = () => {
   const { isLightMode, toggleLightMode } = useContext(ThemeContext);
   return (
-    <nav>
-      <Flex
-        className={styles["nav-container"]}
-        container
-        justifyContent="space-between"
-        padding={"1rem 4rem"}
-      >
+    <nav className={styles["nav-container"]}>
+      <Flex container justifyContent="space-between" padding={"1rem 4rem"}>
         <div>Dashboard</div>
 
         <Switch

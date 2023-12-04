@@ -8,11 +8,25 @@ function App() {
     <>
       <Navbar />
       <Flex container>
-        <div>
+        <div
+          style={{
+            flex: "0 0 250px",
+            position: "fixed",
+            height: "100%",
+            overflowY: "auto",
+          }}
+        >
           <Sidebar />
         </div>
-
-        <div>
+        {/* TODO: fix this */}
+        <div
+          style={{
+            marginLeft: "200px",
+            padding: "24px",
+            flexGrow: "1",
+            overflowY: "auto",
+          }}
+        >
           <Outlet />
         </div>
       </Flex>
