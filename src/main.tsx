@@ -5,12 +5,14 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@contexts/themeContext";
 import { Customers } from "@pages/customers/customers.tsx";
-import { Dashboard } from "@pages/dashboard/dashboard.tsx";
+// import { Dashboard } from "@pages/dashboard/dashboard.tsx";
 import ErrorPage from "@pages/error-page/error-page.tsx";
 import {
   customerDetailLoader,
   CustomerDetail,
 } from "@pages/customer-detail/customer-detail.tsx";
+import { composeDashboard } from "@pages/dashboard/compose.tsx";
+const Dashboard = composeDashboard();
 
 const router = createBrowserRouter([
   {
