@@ -16,7 +16,7 @@ export const formatDate = (
   timestamp: number | string,
   options?: DateFormatterOptions
 ): string => {
-  const defaultFormatString = "yyyy/MM/dd";
+  const defaultFormatString = "yyyy-MM-dd";
   const { formatString = defaultFormatString } = options || {};
 
   const date = new Date(Number(timestamp) * 1000);

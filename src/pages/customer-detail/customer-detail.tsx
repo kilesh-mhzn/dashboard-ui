@@ -58,6 +58,7 @@ export const CustomerDetail = () => {
     <div className={classNames(styles.container)}>
       <Link to="/customers" className={styles.backBtn}>
         <IconLeftChevron />
+        Go Back
       </Link>
       <Flex container gap={"2rem"}>
         <div className={styles.card} style={{ flexGrow: "1" }}>
@@ -85,12 +86,7 @@ export const CustomerDetail = () => {
         </div>
         <div>
           <div className={classNames(styles.card)}>
-            <Flex
-              container
-              flexDirection="column"
-              gap={"1.25rem"}
-              width={"12.5rem"}
-            >
+            <Grid cols={2} gap={"1.25rem"}>
               <div>
                 <div className={styles.label}>Joined at</div>
                 <div className={styles.joinDate}>
@@ -103,8 +99,21 @@ export const CustomerDetail = () => {
                   <StatusBadge type={customerDetail.active} />
                 </Flex>
               </div>
-              <div>{subscriptionDetail?.package}</div>
-            </Flex>
+              {subscriptionDetail?.package && (
+                <>
+                  <div>
+                    <div className={styles.label}>Subscription Plan</div>
+                    <div className={styles.detailField}>
+                      {subscriptionDetail?.package}
+                    </div>
+                  </div>
+                  <div>
+                    <div className={styles.label}>Expiry date</div>
+                    <div>{subscriptionDetail?.expires_on}</div>
+                  </div>
+                </>
+              )}
+            </Grid>
           </div>
         </div>
       </Flex>

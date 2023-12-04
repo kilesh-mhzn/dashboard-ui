@@ -9,9 +9,12 @@
   border-radius: 4px;
   display: inline-flex;
   outline: var(--ll-black-800);
+  padding: 4px 0;
+  padding-right: 8px;
+  margin-bottom: 4px;
 }
 .backBtn:hover {
-  background-color: var(--ll-black-800);
+  background-color: var(--color-table-head);
 }
 
 .label {
