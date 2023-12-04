@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { customerColumns } from "./customerColumns";
 import styles from "./customers.module.css";
 import { useUserData } from "./useUserData";
+import { Input } from "@ui/input/input";
+import { Flex } from "@ui/layout/flex";
 
 export const Customers = () => {
-  const { data, loading, error, debouncedSearch } = useUserData();
+  const { data, loading, error, setSearchTerm, searchTerm } = useUserData();
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
@@ -23,13 +25,18 @@ export const Customers = () => {
     <div className={styles.container}>
       {loading && <p>Loading data...</p>}
       {error && <p>Error: {error}</p>}
-      <div>Customers</div>
-      <input
-        type="text"
-        name=""
-        id=""
-        onChange={(e) => debouncedSearch(e.target.value)}
-      />
+      <Flex container justifyContent="space-between" padding={"2rem"}>
+        <div className={styles.pageTitle}>Customers</div>
+        <Input
+          value={searchTerm}
+          onChange={(value) => {
+            setSearchTerm(value);
+          }}
+          placeholder="Search..."
+          debounceTime={500}
+        />
+      </Flex>
+
       {data.length > 0 && (
         <Table
           cols={customerColumns()}

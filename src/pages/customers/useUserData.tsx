@@ -36,5 +36,5 @@ export const useUserData = () => {
     setSearchTerm(searchTerm);
   }, 500);
 
-  return { data, loading, error, setSearchTerm, debouncedSearch };
+  return { data, loading, error, searchTerm, setSearchTerm, debouncedSearch };
 };
