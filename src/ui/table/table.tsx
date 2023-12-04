@@ -9,6 +9,7 @@ export type Column<T> = {
   title: string;
   render: (item: T) => React.ReactNode;
   customWidth?: string;
+  sortable?: boolean;
 };
 
 export type TableProps<T> = {
@@ -20,6 +21,7 @@ export type TableProps<T> = {
   onPageChange: (page: number) => void;
   onPerPageChange: (perPage: number) => void;
 };
+
 export const Table = <T extends object>({
   cols,
   data,
@@ -34,7 +36,18 @@ export const Table = <T extends object>({
     onPerPageChange,
     page,
     perPage,
+    sortColumn,
+    sortDirection,
+    setSortColumn,
+    setSortDirection,
   } = useTable(data);
+
+  const handleSort = (columnId: string) => {
+    const newSortDirection =
+      sortColumn === columnId && sortDirection === "asc" ? "desc" : "asc";
+    setSortColumn(columnId);
+    setSortDirection(newSortDirection);
+  };
 
   return (
     <div className={styles.tableWrapper}>
@@ -50,10 +63,19 @@ export const Table = <T extends object>({
                 />
               </th>
             )}
-            {cols.map(({ id, title }) => (
-              <th key={id}>
+            {cols.map(({ id, title, sortable }) => (
+              <th
+                key={id}
+                onClick={() => (sortable ? handleSort(id) : undefined)}
+              >
                 <div className={`${styles.tableHeader} ${styles.pointer}`}>
                   {title}
+                  {sortable && (
+                    <span style={{ fontSize: "10px" }}>
+                      {sortColumn === id &&
+                        (sortDirection === "asc" ? " ▲" : " ▼")}
+                    </span>
+                  )}
                 </div>
               </th>
             ))}

@@ -9,7 +9,7 @@ import { Flex } from "@ui/layout/flex";
 export const customerColumns = (): Column<User>[] => {
   return [
     {
-      id: "name",
+      id: "full_name",
       title: "name",
       render: (rowData) => {
         return (
@@ -21,6 +21,7 @@ export const customerColumns = (): Column<User>[] => {
           />
         );
       },
+      sortable: true,
     },
     {
       id: "address",
@@ -39,9 +40,10 @@ export const customerColumns = (): Column<User>[] => {
       render: (rowData) => {
         return <span>{formatDate(rowData.join_date)}</span>;
       },
+      sortable: true,
     },
     {
-      id: "status",
+      id: "active",
       title: "Status",
       render: (rowData) => {
         return (
@@ -50,6 +52,7 @@ export const customerColumns = (): Column<User>[] => {
           </Flex>
         );
       },
+      sortable: true,
     },
   ];
 };
