@@ -6,6 +6,7 @@ type BaseButtonProps = {
   onClick: () => void;
 };
 
+//TODO: create sizes, types for button
 export const Button = ({ children, onClick }: BaseButtonProps) => {
   return (
     <button className={classNames(styles.button)} onClick={onClick}>

@@ -8,6 +8,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { formatDate } from "utils";
 import { LoaderData } from "./compose";
 import styles from "./customer-detail.module.css";
+import { PayementDetails } from "@components/payment-details/payment-details";
 
 export const CustomerDetail = () => {
   const loaderData = useLoaderData() as LoaderData;
@@ -83,6 +84,7 @@ export const CustomerDetail = () => {
           </Grid>
         </div>
       </Flex>
+      <PayementDetails />
     </div>
   );
 };

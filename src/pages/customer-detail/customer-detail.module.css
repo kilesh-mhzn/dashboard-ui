@@ -23,7 +23,7 @@
 }
 
 .detailField {
-  background-color: var(--color-button-accent);
+  background-color: var(--color-fields);
   border-radius: 2px;
   padding: 4px 8px;
 }
