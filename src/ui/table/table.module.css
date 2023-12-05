@@ -22,7 +22,7 @@
 
 .tableWrapper th {
   padding: 10px;
-  background-color: var(--color-table-head);
+  background-color: var(--color-background);
   text-align: start;
   text-transform: capitalize;
   color: var(--text-base);

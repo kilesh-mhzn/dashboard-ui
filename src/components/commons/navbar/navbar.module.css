@@ -1,6 +1,6 @@
 .nav-container {
   position: sticky;
   top: 0;
-  background-color: var(--color-background);
+  background-color: var(--color-surface);
   box-shadow: var(--ll-box-shadow);
 }

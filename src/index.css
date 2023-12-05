@@ -80,7 +80,7 @@ select {
 }
 
 .pageWrapper {
-  background-color: var(--color-background);
+  background-color: var(--color-surface);
   color: var(--color-text-base);
   font-family: var(--ll-font-karla);
   font-weight: var(--text-default);
