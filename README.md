@@ -35,4 +35,5 @@ The dashboard project utilizes React with TypeScript for building a user-friendl
    npm start
    ```
 
-#### Demo: [Preview Dashboard](https://kilesh-dashboard.netlify.app)
+#### Demo: [https://kilesh-dashboard.netlify.app](Preview Dashboard)
+
