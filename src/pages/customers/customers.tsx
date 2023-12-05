@@ -26,7 +26,12 @@ export const Customers = () => {
     <div className={styles.container}>
       {loading && <p>Loading data...</p>}
       {error && <p>Error: {error}</p>}
-      <Flex container justifyContent="space-between" padding={"2rem"}>
+      <Flex
+        container
+        justifyContent="space-between"
+        padding={"2rem"}
+        flexWrap="wrap"
+      >
         <div className={styles.pageTitle}>Customers</div>
 
         <Search
