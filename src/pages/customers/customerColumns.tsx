@@ -40,7 +40,6 @@ export const customerColumns = (): Column<User>[] => {
       render: (rowData) => {
         return <span>{formatDate(rowData.join_date)}</span>;
       },
-      sortable: true,
     },
     {
       id: "active",
