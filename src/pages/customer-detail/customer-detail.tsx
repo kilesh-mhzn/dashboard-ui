@@ -1,49 +1,13 @@
-import { User } from "models/customer.model";
-import CustomerService from "@services/customer.service";
+import { StatusBadge } from "@components/status-badge/status-badge";
+import { IconLeftChevron } from "@ui/icons/icons";
+import { Flex } from "@ui/layout/flex";
+import { Grid } from "@ui/layout/grid";
+import classNames from "classnames";
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import styles from "./customer-detail.module.css";
-import { Grid } from "@ui/layout/grid";
-import { Flex } from "@ui/layout/flex";
-import classNames from "classnames";
 import { formatDate } from "utils";
-import { IconLeftChevron } from "@ui/icons/icons";
-import { StatusBadge } from "@components/status-badge/status-badge";
-import SubscriptionService from "@services/subscription.service";
-import { Subscription } from "models/subscription.model";
-
-interface LoaderData {
-  customerDetail?: User;
-  subscriptionDetail?: Subscription;
-  error?: string;
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export async function customerDetailLoader({
-  params,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: any;
-}): Promise<LoaderData> {
-  try {
-    const customerId = +params.id;
-
-    if (isNaN(customerId)) {
-      throw new Error("Invalid customer ID");
-    }
-
-    const customerService = new CustomerService();
-    const subscriptionService = new SubscriptionService();
-
-    const customerDetail: User = await customerService.getCustomer(customerId);
-    const subscriptionDetail: Subscription =
-      await subscriptionService.getSubscription(params.id);
-
-    return { customerDetail, subscriptionDetail };
-  } catch (error) {
-    return { error: "Failed to fetch customer detail" };
-  }
-}
+import { LoaderData } from "./compose";
+import styles from "./customer-detail.module.css";
 
 export const CustomerDetail = () => {
   const loaderData = useLoaderData() as LoaderData;
@@ -64,7 +28,7 @@ export const CustomerDetail = () => {
         <IconLeftChevron />
         Go Back
       </Link>
-      <Flex container gap={"2rem"}>
+      <Flex container gap={"2rem"} flexWrap="wrap">
         <div className={styles.card} style={{ flexGrow: "1" }}>
           <Grid gap={"1rem"} cols={2}>
             <div>

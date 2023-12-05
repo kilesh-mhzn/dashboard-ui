@@ -5,16 +5,18 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@contexts/themeContext";
 import { Customers } from "@pages/customers/customers.tsx";
-// import { Dashboard } from "@pages/dashboard/dashboard.tsx";
 import ErrorPage from "@pages/error-page/error-page.tsx";
-import {
-  customerDetailLoader,
-  CustomerDetail,
-} from "@pages/customer-detail/customer-detail.tsx";
 import { composeDashboard } from "@pages/dashboard/compose.tsx";
+import {
+  composeCustomerDetail,
+  customerDetailLoader,
+} from "@pages/customer-detail/compose.tsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Dashboard = composeDashboard();
+
+// eslint-disable-next-line react-refresh/only-export-components
+const CustomerDetail = composeCustomerDetail();
 
 const router = createBrowserRouter([
   {
