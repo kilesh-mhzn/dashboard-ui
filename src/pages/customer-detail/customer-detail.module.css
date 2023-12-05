@@ -27,3 +27,13 @@
   border-radius: 5px;
   padding: 4px 8px;
 }
+
+@media only screen and (max-width: 600px) {
+  .responsiveGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

@@ -30,7 +30,7 @@ export const CustomerDetail = () => {
       </Link>
       <Flex container gap={"2rem"} flexWrap="wrap">
         <div className={styles.card} style={{ flexGrow: "1" }}>
-          <Grid gap={"1rem"} cols={2}>
+          <Grid className={styles.responsiveGrid} gap={"1rem"} cols={2}>
             <div>
               <div className={styles.label}>Name</div>
               <div
@@ -52,37 +52,35 @@ export const CustomerDetail = () => {
             </div>
           </Grid>
         </div>
-        <div>
-          <div className={classNames(styles.card)}>
-            <Grid cols={2} gap={"1.25rem"}>
-              <div>
-                <div className={styles.label}>Joined at</div>
-                <div className={styles.joinDate}>
-                  {formatDate(customerDetail.join_date)}
+        <div className={classNames(styles.card)}>
+          <Grid className={styles.responsiveGrid} cols={2} gap={"1.25rem"}>
+            <div>
+              <div className={styles.label}>Joined at</div>
+              <div className={styles.joinDate}>
+                {formatDate(customerDetail.join_date)}
+              </div>
+            </div>
+            <div>
+              <div className={styles.label}>Status</div>
+              <Flex container>
+                <StatusBadge type={customerDetail.active} />
+              </Flex>
+            </div>
+            {subscriptionDetail?.package && (
+              <>
+                <div>
+                  <div className={styles.label}>Subscription Plan</div>
+                  <div className={styles.detailField}>
+                    {subscriptionDetail?.package}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className={styles.label}>Status</div>
-                <Flex container>
-                  <StatusBadge type={customerDetail.active} />
-                </Flex>
-              </div>
-              {subscriptionDetail?.package && (
-                <>
-                  <div>
-                    <div className={styles.label}>Subscription Plan</div>
-                    <div className={styles.detailField}>
-                      {subscriptionDetail?.package}
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.label}>Expiry date</div>
-                    <div>{subscriptionDetail?.expires_on}</div>
-                  </div>
-                </>
-              )}
-            </Grid>
-          </div>
+                <div>
+                  <div className={styles.label}>Expiry date</div>
+                  <div>{subscriptionDetail?.expires_on}</div>
+                </div>
+              </>
+            )}
+          </Grid>
         </div>
       </Flex>
     </div>
