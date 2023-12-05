@@ -1,0 +1,17 @@
+.container {
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: var(--text-lg);
+  font-weight: var(--text-bold);
+}
+.card {
+  border-radius: 4px;
+  background-color: var(--color-background);
+  padding: 12px;
+  box-shadow: var(--ll-box-shadow);
+  min-height: 250px;
+  display: grid;
+  place-content: center;
+}

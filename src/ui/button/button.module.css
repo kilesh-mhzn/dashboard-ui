@@ -1,0 +1,20 @@
+.button {
+  background-color: var(--color-button-accent);
+  font-size: var(--text-base);
+  color: var(--color-text-base);
+  font-weight: var(--text-default);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.1s ease-in;
+}
+
+.button:hover {
+  background-color: var(--color-button-accent-hover);
+}
+
+.button:active {
+  outline: 2px solid var(--color-button-outline); /* Specify the color and width of the outline */
+}

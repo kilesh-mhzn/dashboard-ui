@@ -71,10 +71,19 @@ export const Table = <T extends object>({
                 <div className={`${styles.tableHeader} ${styles.pointer}`}>
                   {title}
                   {sortable && (
-                    <span style={{ fontSize: "10px" }}>
-                      {sortColumn === id &&
-                        (sortDirection === "asc" ? " ▲" : " ▼")}
-                    </span>
+                    <>
+                      <span style={{ fontSize: "10px" }}>
+                        {sortColumn === id ? (
+                          sortDirection === "asc" ? (
+                            " ▲"
+                          ) : (
+                            " ▼"
+                          )
+                        ) : (
+                          <span style={{ marginLeft: "4px" }}>⬆⬇</span>
+                        )}
+                      </span>
+                    </>
                   )}
                 </div>
               </th>
