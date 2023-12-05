@@ -1,6 +1,6 @@
 .card {
-  border-radius: 10px;
-  background-color: var(--color-table-head);
+  border-radius: 4px;
+  background-color: var(--color-background);
   padding: 12px;
   box-shadow: var(--ll-box-shadow);
 }
@@ -14,7 +14,7 @@
   margin-bottom: 4px;
 }
 .backBtn:hover {
-  background-color: var(--color-table-head);
+  background-color: var(--color-background);
 }
 
 .label {
@@ -24,7 +24,7 @@
 
 .detailField {
   background-color: var(--color-button-accent);
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 4px 8px;
 }
 

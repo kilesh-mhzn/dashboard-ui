@@ -1,25 +1,25 @@
 @import "colors/base.css";
 
 :root {
-  --color-background: var(--ll-slate-100);
+  --color-surface: var(--ll-slate-100);
   --color-text-base: var(--ll-slate-900);
   --color-text-muted: var(--ll-slate-500);
   --color-text-inverted: var(--ll-color-white);
-  --color-button-accent: var(--ll-slate-200);
+  --color-button-accent: var(--ll-slate-300);
   --color-button-accent-hover: var(--ll-slate-100);
 
-  --color-table-head: var(--ll-slate-300);
-  --color-table-row-hover: var(--ll-slate-200);
+  --color-background: var(--ll-slate-200);
+  --color-table-row-hover: var(--ll-slate-100);
 }
 
 .themeDark {
-  --color-background: var(--ll-black-900);
+  --color-surface: var(--ll-black-900);
   --color-text-base: var(--ll-black-50);
   --color-text-muted: var(--ll-slate-300);
   --color-text-inverted: var(--ll-slate-900);
   --color-button-accent: var(--ll-black-700);
   --color-button-accent-hover: var(--ll-black-800);
 
-  --color-table-head: var(--ll-black-800);
+  --color-background: var(--ll-black-800);
   --color-table-row-hover: var(--ll-black-700);
 }
