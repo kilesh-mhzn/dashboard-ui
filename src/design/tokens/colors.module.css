@@ -5,14 +5,18 @@
   --color-text-base: var(--ll-slate-900);
   --color-text-muted: var(--ll-slate-500);
   --color-text-inverted: var(--ll-color-white);
-  --color-button-accent: var(--ll-slate-200);
-  --color-button-accent-hover: var(--ll-slate-300);
+  --color-button-accent: var(--ll-slate-300);
+  --color-button-accent-hover: var(--ll-slate-200);
 
   --color-background: var(--ll-slate-200);
-  --color-table-row-hover: var(--ll-slate-100);
+  --color-table-row-hover: var(--ll-slate-200);
   --color-button-outline: var(--ll-slate-400);
 
   --color-fields: var(--ll-slate-300);
+  --color-disabled: var(--ll-black-200);
+
+  --color-button: var(--ll-slate-100);
+  --color-sidebar-background: hsl(240, 5%, 92%);
 }
 
 .themeDark {
@@ -20,12 +24,16 @@
   --color-text-base: var(--ll-black-50);
   --color-text-muted: var(--ll-slate-300);
   --color-text-inverted: var(--ll-slate-900);
-  --color-button-accent: var(--ll-black-700);
-  --color-button-accent-hover: var(--ll-black-800);
+  --color-button-accent: var(--ll-black-800);
+  --color-button-accent-hover: var(--ll-black-700);
 
-  --color-background: var(--ll-black-800);
-  --color-table-row-hover: var(--ll-black-700);
+  --color-background: var(--ll-black-700);
+  --color-table-row-hover: var(--ll-black-800);
   --color-button-outline: var(--ll-black-600);
 
   --color-fields: var(--ll-black-700);
+
+  --color-disabled: var(--ll-black-600);
+
+  --color-sidebar-background: var(--ll-black-700);
 }

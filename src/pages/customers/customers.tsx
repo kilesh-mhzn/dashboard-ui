@@ -1,4 +1,4 @@
-import { Search } from "@components/searchInput";
+import { Search } from "@components/search-input/searchInput";
 import { Flex } from "@ui/layout/flex";
 import { Table } from "@ui/table/table";
 import React, { useState } from "react";
@@ -23,35 +23,37 @@ export const Customers = () => {
   };
 
   return (
-    <div className={styles.container}>
-      {loading && <p>Loading data...</p>}
-      {error && <p>Error: {error}</p>}
-      <Flex
-        container
-        justifyContent="space-between"
-        padding={"2rem"}
-        flexWrap="wrap"
-      >
-        <div className={styles.pageTitle}>Customers</div>
-
+    <>
+      <Flex container justifyContent="space-between" margin={"0 0 15px 0"}>
+        <h1 className={styles.pageTitle}>Customers</h1>
         <Search
           placeholder={"Search"}
           onChange={(value) => setSearchTerm(value)}
         />
       </Flex>
+      <div className={styles.container}>
+        {loading && <p>Loading data...</p>}
+        {error && <p>Error: {error}</p>}
+        <Flex
+          container
+          justifyContent="flex-end"
+          // padding={"2rem"}
+          flexWrap="wrap"
+        ></Flex>
 
-      {data.length > 0 ? (
-        <Table
-          cols={customerColumns()}
-          data={data}
-          page={currentPage}
-          perPage={itemsPerPage}
-          onPageChange={handlePageChange}
-          onPerPageChange={handlePerPageChange}
-        />
-      ) : (
-        <EmptyState />
-      )}
-    </div>
+        {data.length > 0 ? (
+          <Table
+            cols={customerColumns()}
+            data={data}
+            page={currentPage}
+            perPage={itemsPerPage}
+            onPageChange={handlePageChange}
+            onPerPageChange={handlePerPageChange}
+          />
+        ) : (
+          <EmptyState />
+        )}
+      </div>
+    </>
   );
 };

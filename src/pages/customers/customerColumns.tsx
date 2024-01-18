@@ -44,6 +44,7 @@ export const customerColumns = (): Column<User>[] => {
     {
       id: "active",
       title: "Status",
+      customWidth: "50",
       render: (rowData) => {
         return (
           <Flex container>

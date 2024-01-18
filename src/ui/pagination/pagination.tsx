@@ -47,7 +47,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         <span>{Math.min(page * perPage, totalItems)}</span> of
         <span> {totalItems} </span>
       </div>
-      <Flex container>
+      <Flex container gap={".75rem"}>
         <button
           className={styles.paginationBtn}
           onClick={() => onPageChange(page - 1)}

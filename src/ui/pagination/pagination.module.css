@@ -4,4 +4,23 @@
 .paginationBtn {
   display: flex;
   align-items: center;
+  background-color: var(--color-background);
+  font-size: var(--text-base);
+  color: var(--color-text-base);
+  font-weight: var(--text-default);
+  outline: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  border-radius: 4px;
+}
+
+.paginationBtn:disabled {
+  background-color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+.paginationBtn:not(:disabled):hover {
+  background-color: var(--color-fields);
 }

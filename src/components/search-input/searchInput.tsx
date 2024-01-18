@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-
+import styles from "./search-input.module.css";
 import useDebounce from "@hooks/useDebounce";
 import { Input } from "@ui/input/input";
 

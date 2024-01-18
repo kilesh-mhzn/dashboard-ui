@@ -9,6 +9,7 @@
   width: 100%;
   overflow-x: auto;
   font-family: Karla;
+  border-radius: 4px;
 }
 
 .tableWrapper table {
@@ -39,8 +40,8 @@
   font-weight: 500;
 }
 
-.tableWrapper tr:not(:last-child) {
-  border-bottom: 1px solid var(--color-text-muted);
+.tableWrapper tr {
+  border-bottom: 1px solid var(--color-table-row-hover);
 }
 
 .tableHeader {
@@ -61,4 +62,9 @@
   width: 100%;
   display: flex;
   justify-items: flex-end;
+}
+
+.sortIcon {
+  font-size: 10px;
+  color: var(--ll-amber-500);
 }
