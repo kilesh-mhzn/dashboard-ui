@@ -72,7 +72,7 @@ export const Table = <T extends object>({
                   {title}
                   {sortable && (
                     <>
-                      <span style={{ fontSize: "10px" }}>
+                      <span className={styles.sortIcon}>
                         {sortColumn === id ? (
                           sortDirection === "asc" ? (
                             " ▲"

@@ -6,7 +6,7 @@
 }
 
 .sidebar-list {
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   display: grid;
   gap: 1rem;
   font-weight: var(--text-semibold);
@@ -19,5 +19,6 @@
   background-color: var(--color-button-accent-hover);
 }
 .sidebar-list .active-nav > .list-item {
-  background-color: var(--color-button-accent);
+  background-color: var(--color-sidebar-background);
+  color: var(--ll-amber-500);
 }

@@ -2,3 +2,9 @@
   font-size: var(--text-sm);
   color: var(--color-text-muted);
 }
+.full_name {
+  color: var(--ll-blue-500);
+}
+.full_name:hover {
+  color: var(--ll-blue-600);
+}

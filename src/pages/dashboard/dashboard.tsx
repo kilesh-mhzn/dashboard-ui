@@ -34,14 +34,19 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <div>Loading...</div>
       ) : (
         <>
-          <div>Welcome to Your Dashboard</div>
-          <Flex container gap={"1rem"} flexWrap="wrap">
+          <h1>Dashboard</h1>
+          <Flex margin={"16px 0 0 0"} container gap={"2rem"} flexWrap="wrap">
             <div className={classNames(styles.card, styles.barChart)}>
+              <h3 className={styles.chartName}>
+                Active Subscription per Package
+              </h3>
               <GroupedBarChart
                 mergedData={getMergedData({ userData: data, subscriptionData })}
               />
             </div>
             <div className={classNames(styles.card, styles.pieChart)}>
+              <h3 className={styles.chartName}>Active Users</h3>
+
               <PieChart statusData={getActiveSubscriptionCount({ data })} />
             </div>
           </Flex>

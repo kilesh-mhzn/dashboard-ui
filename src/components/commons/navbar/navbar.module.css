@@ -4,3 +4,14 @@
   background-color: var(--color-surface);
   box-shadow: var(--ll-box-shadow);
 }
+
+.logoContainer {
+  background-color: var(--ll-amber-400);
+  border-radius: 5px;
+  padding: 2px 8px;
+}
+
+.systemName {
+  font-size: var(--text-lg);
+  font-weight: var(--text-bold);
+}

@@ -53,7 +53,7 @@
 }
 
 .switch > input:checked + .slider {
-  background-color: #059669;
+  background-color: var(--ll-amber-400);
 }
 
 .switch > input:checked + .slider:before {

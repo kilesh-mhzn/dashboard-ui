@@ -89,3 +89,15 @@ select {
   transition: background 0.2s ease-in;
   overflow: auto;
 }
+
+h1 {
+  font-size: var(--text-xl);
+  font-weight: var(--text-bold);
+  margin-bottom: var(--ll-spacing-sm);
+}
+
+h3 {
+  font-size: var(--text-md);
+  font-weight: var(--text-semibold);
+  margin-bottom: var(--ll-spacing-sm);
+}
