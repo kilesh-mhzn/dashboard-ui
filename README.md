@@ -11,9 +11,10 @@ This React project is a dashboard designed to display user details and subscript
 - Chart.js for data visualization
 - React Router 6 for navigation
 
-## Project Description
-
-The dashboard project utilizes React with TypeScript for building a user-friendly interface. Chart.js is employed to visualize subscription data, enhancing the overall user experience.
+## Features
+- Interactive charts using Chart.js for data visualization.
+- Modular and reusable components built with TypeScript.
+- Navigation implemented with React Router 6.
 
 ## Installation
 
@@ -34,5 +35,8 @@ The dashboard project utilizes React with TypeScript for building a user-friendl
    ```bash
    npm start
    ```
+## Future Improvements
+- Add user authentication.
+- Include more chart types for diverse data visualization.
 
 #### Demo: [Preview Dashboard](https://kilesh-dashboard.netlify.app)
